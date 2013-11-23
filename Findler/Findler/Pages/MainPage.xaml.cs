@@ -25,19 +25,24 @@ namespace Findler
         public MainPage()
         {
             this.InitializeComponent();
+            ResultsPanel.Visibility = Visibility.Collapsed;
+            QueryPanel.Visibility = Visibility.Visible;
         }
 
         private void ExpertFor_KeyDown_1(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
+                QueryPanel.Visibility = Visibility.Collapsed;
+                ResultsPanel.Visibility = Visibility.Visible;
                 Search(ExpertIs.Text, ExpertFor.Text);    
             }
         }
 
-        private void Search(string expertIs, string expertFor)
+        private async void Search(string expertIs, string expertFor)
         {
-            
+            var fapi = new Services.ApiInteract();
+            DumpBlock.Text = await fapi.ApiSearch(expertFor);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Findler.Pages
             TheProgressRing.IsActive = true;
             //Do stuff
 
-            await Task.Delay(3000);
+            await Task.Delay(1000);
 
             TheProgressRing.IsActive = false;
             var fr = new Frame();
