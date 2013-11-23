@@ -48,8 +48,23 @@ namespace Findler
 
         private void DrawProperListview(Dictionary<string, PersonReportCard> peopleData)
         {
-            var collection = peopleData.Values.ToList();
-            PersonsListView.ItemsSource = collection;
+
+            List<string> entries = new List<string>();
+
+            foreach (var person in peopleData)
+            {
+                String concat = "";
+
+                concat += person.Value.firstname + " " + person.Value.lastname;
+                foreach (var project in person.Value.projects)
+                {
+                    concat += "\n" + ">>" + project.title + " [" + project.start + "] ";
+                }
+                concat += "\n";
+                entries.Add(concat);
+            }
+            
+            PersonsItemsControl.ItemsSource = entries;
         }
 
         private void DrawTextDump(Dictionary<string,PersonReportCard> peopleData)
@@ -58,16 +73,15 @@ namespace Findler
 
             foreach (var personReportCard in peopleData)
             {
-                output += "\n" + personReportCard.Value.firstname + " - "  + personReportCard.Value.lastname;
+                output += "\n" + personReportCard.Value.firstname + " - " + personReportCard.Value.lastname;
                 foreach (var project in personReportCard.Value.projects)
                 {
                     output += "\n>>" + project.title + " [" + project.start + "] " + "\n";
                 }
-                //output += "\n";
+                output += "\n";
             }
 
-
-            DumpBlock.Text = output;   
+            DumpBlock.Text = output;         
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
