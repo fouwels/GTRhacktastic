@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -30,14 +31,14 @@ namespace Findler
             QueryPanel.Visibility = Visibility.Visible;
         }
 
-        public void MainSequence()
+        public async void MainSequence()
         {
             QueryPanelFadeOut.Begin();
 
-            Search(ExpertIs.Text, ExpertFor.Text);
+            //Search(ExpertIs.Text, ExpertFor.Text);
+            await GetPeople(ExpertIs.Text, ExpertFor.Text);
 
-            GetPeople(ExpertIs.Text, ExpertFor.Text);
-            
+            DumpBlock.Text = "RESULTS HERE";
             ResultsPanelFadeIn.Begin();       
         }
 
@@ -55,7 +56,7 @@ namespace Findler
             DumpBlock.Text = await fapi.ApiSearch(expertFor);
         }
 
-        private async void GetPeople(string expertIs, string expertFor )
+        private async Task GetPeople(string expertIs, string expertFor )
         {
             var fapi = new Services.ApiInteract();
             var bleh = await fapi.GetPeople(expertFor);

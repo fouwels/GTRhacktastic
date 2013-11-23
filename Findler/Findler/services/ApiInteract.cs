@@ -22,7 +22,7 @@ namespace Findler.Services
             return await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam);
         }
 
-        public async Task<object> GetPeople(string searchParam)
+        public async Task<Dictionary<string, PersonReportCard>> GetPeople(string searchParam)
         {
             //sort the clusterf*ck of queried data 
 
@@ -45,14 +45,12 @@ namespace Findler.Services
                     //ADD ALL THE THINGS
                     register[localPerson.id].firstname = localPerson.firstName;
                     register[localPerson.id].lastname = localPerson.surname;
-                    register[localPerson.id].projects.Add(localProject);
+                    //register[localPerson.id].projects.Add(localProject);
                 }
-
-                
 
             }
 
-            return new object();
+            return register;
         }
 
         private async Task<string> HttpGet(string urlIn)
