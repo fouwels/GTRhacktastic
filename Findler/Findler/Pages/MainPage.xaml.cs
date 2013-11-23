@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -28,11 +29,15 @@ namespace Findler
         public MainPage()
         {
             this.InitializeComponent();
+            Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
             ScrollViewer.SetVerticalScrollBarVisibility(PersonsItemsControl, ScrollBarVisibility.Hidden);
+            Reset();
+        }
 
-            ResultsPanel.Visibility = Visibility.Collapsed;
-            QueryPanel.Visibility = Visibility.Visible;
-
+        private async void Reset()
+        {
+            ResultsPanelFadeOut.Begin();
+            QueryPanelFadeIn.Begin();
         }
 
         public async void MainSequence()
@@ -96,6 +101,14 @@ namespace Findler
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
                 MainSequence();
+            }
+        }
+
+        void CoreWindow_KeyDown(Windows.UI.Core.CoreWindow sender, Windows.UI.Core.KeyEventArgs args)
+        {
+            if (args.VirtualKey == Windows.System.VirtualKey.Escape)
+            {
+                Reset();
             }
         }
 
