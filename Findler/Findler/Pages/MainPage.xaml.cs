@@ -53,6 +53,10 @@ namespace Findler
             DumpBlock.Text = output;
             ResultsPanelFadeIn.Begin();       
         }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            ExpertIs.Focus(FocusState.Programmatic);
+        }
 
         private void ExpertFor_KeyDown_1(object sender, KeyRoutedEventArgs e)
         {
