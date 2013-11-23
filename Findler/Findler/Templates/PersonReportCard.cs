@@ -13,7 +13,7 @@ namespace Findler.Templates
         public string firstname;
         public string lastname;
 
-        public List<Project> projects;
+        public List<Project> projects = new List<Project>();
 
     }
 }

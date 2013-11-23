@@ -14,8 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+using Findler.Templates;
 
 namespace Findler
 {
@@ -36,9 +36,21 @@ namespace Findler
             QueryPanelFadeOut.Begin();
 
             //Search(ExpertIs.Text, ExpertFor.Text);
-            await GetPeople(ExpertIs.Text, ExpertFor.Text);
+            var peopleData = await GetPeople(ExpertIs.Text, ExpertFor.Text);
 
-            DumpBlock.Text = "RESULTS HERE";
+            String output = "";
+
+            foreach (var personReportCard in peopleData)
+            {
+                output += "\n" + personReportCard.Value.firstname + " - " + personReportCard.Value.lastname;
+                foreach (var project in personReportCard.Value.projects)
+                {
+                    output += "\n>>" + project.title + " [" + project.updated + "] " + "\n";
+                }
+                //output += "\n";
+            }
+
+            DumpBlock.Text = output;
             ResultsPanelFadeIn.Begin();       
         }
 
@@ -56,10 +68,11 @@ namespace Findler
             DumpBlock.Text = await fapi.ApiSearch(expertFor);
         }
 
-        private async Task GetPeople(string expertIs, string expertFor )
+        private async Task<Dictionary<string, PersonReportCard>>  GetPeople(string expertIs, string expertFor )
         {
             var fapi = new Services.ApiInteract();
-            var bleh = await fapi.GetPeople(expertFor);
+            var register = await fapi.GetPeople(expertFor);
+            return register;
         }
     }
 }

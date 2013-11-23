@@ -56,6 +56,9 @@
             <TextBlock Width="1000" Height="600" x:Name="DumpBlock" TextWrapping="WrapWholeWords"  FontSize="20">
                 
             </TextBlock>
+            <ListView Height="600">
+                
+            </ListView>
         </Grid>
     </Grid>
 </Page>
