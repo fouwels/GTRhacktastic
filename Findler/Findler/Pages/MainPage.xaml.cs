@@ -26,5 +26,18 @@ namespace Findler
         {
             this.InitializeComponent();
         }
+
+        private void ExpertFor_KeyDown_1(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                Search(ExpertIs.Text, ExpertFor.Text);    
+            }
+        }
+
+        private void Search(string expertIs, string expertFor)
+        {
+            
+        }
     }
 }
