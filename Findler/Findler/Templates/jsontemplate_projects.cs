@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Findler.Templates
+namespace Findler.Templates.JsonTemplates.Projects
 {
     public class OtherAttributes
     {

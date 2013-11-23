@@ -114,7 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ApiInteract.cs" />
     <Compile Include="Services\HttpExtensions.cs" />
+    <Compile Include="Templates\jsontemplate_peopleByProjectID.cs" />
     <Compile Include="Templates\jsontemplate_projects.cs" />
+    <Compile Include="Templates\PersonReportCard.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

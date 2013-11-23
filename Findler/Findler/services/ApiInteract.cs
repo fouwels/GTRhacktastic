@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -7,6 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Findler.Services;
+using Findler.Templates;
+using Findler.Templates.JsonTemplates.PeopleByProjectID;
+using Findler.Templates.JsonTemplates.Projects;
 using Newtonsoft.Json;
 
 namespace Findler.Services
@@ -20,11 +24,32 @@ namespace Findler.Services
 
         public async Task<object> GetPeople(string searchParam)
         {
-            var decodedResults = JsonConvert.DeserializeObject<Templates.JsonTemplate_projects>(await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam));
+            //sort the clusterf*ck of queried data 
 
-            foreach (var project in decodedResults.project)
+            var register = new Dictionary<string, PersonReportCard>();
+
+
+            var decodedResultsProjects = JsonConvert.DeserializeObject<JsonTemplate_projects>(await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam));
+
+            foreach (var localProject in decodedResultsProjects.project)
             {
+
+                var DecodedResultsPersons = JsonConvert.DeserializeObject<JsonTemplate_peopleByProjectID>(await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects/" + localProject.id + "/persons"));
+
+                foreach (var localPerson in DecodedResultsPersons.person)
+                {
+                    if (!register.ContainsKey(localPerson.id))
+                    {
+                        register.Add(localPerson.id, new PersonReportCard());
+                    }
+                    //ADD ALL THE THINGS
+                    register[localPerson.id].firstname = localPerson.firstName;
+                    register[localPerson.id].lastname = localPerson.surname;
+                    register[localPerson.id].projects.Add(localProject);
+                }
+
                 
+
             }
 
             return new object();
