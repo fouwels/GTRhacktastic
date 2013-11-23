@@ -29,13 +29,20 @@ namespace Findler
             QueryPanel.Visibility = Visibility.Visible;
         }
 
+        public void MainSequence()
+        {
+            QueryPanelFadeOut.Begin();
+
+            Search(ExpertIs.Text, ExpertFor.Text);
+            
+            ResultsPanelFadeIn.Begin();       
+        }
+
         private void ExpertFor_KeyDown_1(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                QueryPanel.Visibility = Visibility.Collapsed;
-                ResultsPanel.Visibility = Visibility.Visible;
-                Search(ExpertIs.Text, ExpertFor.Text);    
+                MainSequence();
             }
         }
 
@@ -43,6 +50,10 @@ namespace Findler
         {
             var fapi = new Services.ApiInteract();
             DumpBlock.Text = await fapi.ApiSearch(expertFor);
+        }
+
+        private async void GetPeople()
+        {
         }
     }
 }

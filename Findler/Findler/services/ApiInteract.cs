@@ -16,9 +16,20 @@ namespace Findler.Services
         {
             return await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam);
         }
+
+        public async Task<object> getPeople(string searchParam)
+        {
+
+
+
+            return new object();
+        }
+
         private async Task<string> HttpGet(string urlIn)
         {
             var request = (HttpWebRequest)WebRequest.Create(urlIn);
+            request.Accept = "application/json";
+
             var response = await request.GetResponseAsync();
 
             string temp;
