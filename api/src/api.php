@@ -1,6 +1,7 @@
 <?php
 
 require("lib/Toro.php");
+require("services.php")
 
 // /
 class RootHandler{
