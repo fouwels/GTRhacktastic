@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -34,6 +35,8 @@ namespace Findler
             QueryPanelFadeOut.Begin();
 
             Search(ExpertIs.Text, ExpertFor.Text);
+
+            GetPeople(ExpertIs.Text, ExpertFor.Text);
             
             ResultsPanelFadeIn.Begin();       
         }
@@ -52,8 +55,10 @@ namespace Findler
             DumpBlock.Text = await fapi.ApiSearch(expertFor);
         }
 
-        private async void GetPeople()
+        private async void GetPeople(string expertIs, string expertFor )
         {
+            var fapi = new Services.ApiInteract();
+            var bleh = await fapi.GetPeople(expertFor);
         }
     }
 }

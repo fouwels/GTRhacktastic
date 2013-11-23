@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Findler.Services;
+using Newtonsoft.Json;
 
 namespace Findler.Services
 {
@@ -17,10 +18,14 @@ namespace Findler.Services
             return await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam);
         }
 
-        public async Task<object> getPeople(string searchParam)
+        public async Task<object> GetPeople(string searchParam)
         {
+            var decodedResults = JsonConvert.DeserializeObject<Templates.JsonTemplate_projects>(await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam));
 
-
+            foreach (var project in decodedResults.project)
+            {
+                
+            }
 
             return new object();
         }
