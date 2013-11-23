@@ -21,16 +21,17 @@
             <ScrollViewer 
                 VerticalScrollBarVisibility="Hidden" 
                 HorizontalScrollMode="Disabled" >
-            <ItemsControl Height="600" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" x:Name="PersonsItemsControl" 
+            <ListView Height="600" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" x:Name="PersonsItemsControl" 
                       IsTapEnabled="False" 
                       IsRightTapEnabled="False" 
                       IsHitTestVisible="True" 
-                      IsHoldingEnabled="False">
+                      IsHoldingEnabled="False" 
+                      IsDoubleTapEnabled="False">
                 
-                <ItemsControl.ItemTemplate>
+                <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding}" FontSize="20"/>
+                                <TextBlock Text="{Binding}" FontSize="20" TextWrapping="Wrap"/>
                             <!--StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding firstname}" FontSize="20" FontFamily="Global User Interface" />
                                 <TextBlock Text="  " FontSize="20" />
@@ -45,8 +46,8 @@
                             </StackPanel>-->
                         </StackPanel>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
            </ScrollViewer>
         </Grid>
     </Grid>

@@ -28,8 +28,11 @@ namespace Findler
         public MainPage()
         {
             this.InitializeComponent();
+            ScrollViewer.SetVerticalScrollBarVisibility(PersonsItemsControl, ScrollBarVisibility.Hidden);
+
             ResultsPanel.Visibility = Visibility.Collapsed;
             QueryPanel.Visibility = Visibility.Visible;
+
         }
 
         public async void MainSequence()
