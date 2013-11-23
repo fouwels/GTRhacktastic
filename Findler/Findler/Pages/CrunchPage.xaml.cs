@@ -25,7 +25,7 @@ namespace Findler.Pages
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            StatusMessage.Text = "Calculating [[something]]";
+            StatusMessage.Text = "Calculating";
             TheProgressRing.IsActive = true;
             //Do stuff
 

@@ -10,8 +10,8 @@ namespace Findler.Templates
 {
     public class PersonReportCard
     {
-        public string firstname;
-        public string lastname;
+        public string firstname { get; set; }
+        public string lastname { get; set; }
 
         public List<Project> projects = new List<Project>();
 

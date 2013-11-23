@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -38,20 +39,35 @@ namespace Findler
             //Search(ExpertIs.Text, ExpertFor.Text);
             var peopleData = await GetPeople(ExpertIs.Text, ExpertFor.Text);
 
+            //DrawTextDump(peopleData);
+
+            DrawProperListview(peopleData);
+
+            ResultsPanelFadeIn.Begin();       
+        }
+
+        private void DrawProperListview(Dictionary<string, PersonReportCard> peopleData)
+        {
+            var collection = peopleData.Values.ToList();
+            PersonsListView.ItemsSource = collection;
+        }
+
+        private void DrawTextDump(Dictionary<string,PersonReportCard> peopleData)
+        {
             String output = "";
 
             foreach (var personReportCard in peopleData)
             {
-                output += "\n" + personReportCard.Value.firstname + " - " + personReportCard.Value.lastname;
+                output += "\n" + personReportCard.Value.firstname + " - "  + personReportCard.Value.lastname;
                 foreach (var project in personReportCard.Value.projects)
                 {
-                    output += "\n>>" + project.title + " [" + project.updated + "] " + "\n";
+                    output += "\n>>" + project.title + " [" + project.start + "] " + "\n";
                 }
                 //output += "\n";
             }
 
-            DumpBlock.Text = output;
-            ResultsPanelFadeIn.Begin();       
+
+            DumpBlock.Text = output;   
         }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

@@ -45,7 +45,7 @@ namespace Findler.Services
                     //ADD ALL THE THINGS
                     register[localPerson.id].firstname = localPerson.firstName;
                     register[localPerson.id].lastname = localPerson.surname;
-                    register[localPerson.id].projects.Add(localProject); //TODO Make work, not return null <- lolwut?
+                    //register[localPerson.id].projects.Add(localProject); //TODO Make work, not return null <- lolwut?
                 }
 
             }
