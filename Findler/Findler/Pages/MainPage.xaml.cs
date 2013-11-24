@@ -23,11 +23,10 @@ namespace Findler
         {
             InitializeComponent();
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            //ScrollViewer.SetVerticalScrollBarVisibility(PersonsItemsControl, ScrollBarVisibility.Hidden);
             Reset();
         }
 
-        private async void Reset()
+        private void Reset()
         {
             ResultsPanelFadeOut.Begin();
             QueryPanelFadeIn.Begin();
@@ -37,10 +36,7 @@ namespace Findler
         {
             QueryPanelFadeOut.Begin();
 
-            //Search(ExpertIs.Text, ExpertFor.Text);
             Dictionary<string, PersonReportCard> peopleData = await GetPeople(ExpertIs.Text, ExpertFor.Text);
-
-            //DrawTextDump(peopleData);
 
             DrawProperListview(peopleData);
 
@@ -65,23 +61,6 @@ namespace Findler
             }
 
             PersonsItemsControl.ItemsSource = entries;
-        }
-
-        private void DrawTextDump(Dictionary<string, PersonReportCard> peopleData)
-        {
-            String output = "";
-
-            foreach (var personReportCard in peopleData)
-            {
-                output += "\n" + personReportCard.Value.firstname + " - " + personReportCard.Value.lastname;
-                foreach (Project project in personReportCard.Value.projects)
-                {
-                    output += "\n>>" + project.title + " [" + project.start + "] " + "\n";
-                }
-                output += "\n";
-            }
-
-            DumpBlock.Text = output;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

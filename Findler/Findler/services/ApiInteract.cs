@@ -18,22 +18,17 @@ namespace Findler.Services
 
         public async Task<Dictionary<string, PersonReportCard>> GetPeople(string searchParam)
         {
-            //sort the clusterf*ck of queried data 
+            //process the mess of queried data 
 
             var register = new Dictionary<string, PersonReportCard>();
 
-
-            var decodedResultsProjects =
-                JsonConvert.DeserializeObject<JsonTemplate_projects>(
-                    await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam));
+            var decodedResultsProjects = JsonConvert.DeserializeObject<JsonTemplate_projects>(await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects?q=" + searchParam));
 
             foreach (Project localProject in decodedResultsProjects.project)
             {
-                var DecodedResultsPersons =
-                    JsonConvert.DeserializeObject<JsonTemplate_peopleByProjectID>(
-                        await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects/" + localProject.id + "/persons"));
+                var decodedResultsPersons = JsonConvert.DeserializeObject<JsonTemplate_peopleByProjectID>( await HttpGet("http://gtr.rcuk.ac.uk/gtr/api/projects/" + localProject.id + "/persons"));
 
-                foreach (Person localPerson in DecodedResultsPersons.person)
+                foreach (Person localPerson in decodedResultsPersons.person)
                 {
                     if (!register.ContainsKey(localPerson.id))
                     {
