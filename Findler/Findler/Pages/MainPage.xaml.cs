@@ -30,7 +30,7 @@ namespace Findler
         {
             this.InitializeComponent();
             Window.Current.CoreWindow.KeyDown += CoreWindow_KeyDown;
-            ScrollViewer.SetVerticalScrollBarVisibility(PersonsItemsControl, ScrollBarVisibility.Hidden);
+            //ScrollViewer.SetVerticalScrollBarVisibility(PersonsItemsControl, ScrollBarVisibility.Hidden);
             Reset();
         }
 

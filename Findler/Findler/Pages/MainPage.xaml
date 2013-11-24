@@ -81,14 +81,18 @@
             <TextBlock Width="1000" Height="600" x:Name="DumpBlock" TextWrapping="WrapWholeWords"  FontSize="20">
 
             </TextBlock>
-                <ListView Height="600" VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" x:Name="PersonsItemsControl" 
+            <ScrollViewer Height="600" Width="1000"
+                VerticalScrollMode="Enabled" 
+                VerticalScrollBarVisibility="Hidden" 
+                HorizontalScrollMode="Disabled">
+                <ItemsControl VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" x:Name="PersonsItemsControl" 
                       IsTapEnabled="False" 
                       IsRightTapEnabled="False" 
                       IsHitTestVisible="True" 
                       IsHoldingEnabled="False" 
                       IsDoubleTapEnabled="False">
 
-                    <ListView.ItemTemplate>
+                    <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
                                 <TextBlock Text="{Binding}" FontSize="20" TextWrapping="Wrap"/>
@@ -106,9 +110,9 @@
                             </StackPanel>-->
                             </StackPanel>
                         </DataTemplate>
-                    </ListView.ItemTemplate>
-                
-            </ListView>
+                    </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            </ScrollViewer>
         </Grid>
     </Grid>
 
