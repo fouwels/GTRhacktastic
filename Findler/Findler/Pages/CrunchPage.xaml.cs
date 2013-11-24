@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace Findler.Pages
@@ -20,7 +9,7 @@ namespace Findler.Pages
     {
         public CrunchPage()
         {
-          InitializeComponent();  
+            InitializeComponent();
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
@@ -33,7 +22,7 @@ namespace Findler.Pages
 
             TheProgressRing.IsActive = false;
             var fr = new Frame();
-            fr.Navigate(typeof(MainPage));
+            fr.Navigate(typeof (MainPage));
             Window.Current.Content = fr;
             Window.Current.Activate();
         }

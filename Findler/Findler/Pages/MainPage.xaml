@@ -9,11 +9,13 @@
     mc:Ignorable="d">
     <Page.Resources>
         <Storyboard x:Name="QueryPanelFadeOut">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="QueryPanel">
-                <EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="QueryPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="QueryPanel">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="QueryPanel">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
@@ -21,17 +23,19 @@
                 </DiscreteObjectKeyFrame>
                 <DiscreteObjectKeyFrame KeyTime="0:0:1">
                     <DiscreteObjectKeyFrame.Value>
-                		<Visibility>Visible</Visibility>
-                	</DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
                 </DiscreteObjectKeyFrame>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="ResultsPanelFadeIn">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ResultsPanel">
-                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="ResultsPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1" />
             </DoubleAnimationUsingKeyFrames>
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ResultsPanel">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="ResultsPanel">
                 <DiscreteObjectKeyFrame KeyTime="0">
                     <DiscreteObjectKeyFrame.Value>
                         <Visibility>Visible</Visibility>
@@ -45,57 +49,76 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="QueryPanelFadeIn">
-        	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="QueryPanel">
-        		<DiscreteObjectKeyFrame KeyTime="0">
-        			<DiscreteObjectKeyFrame.Value>
-        				<Visibility>Visible</Visibility>
-        			</DiscreteObjectKeyFrame.Value>
-        		</DiscreteObjectKeyFrame>
-        		<DiscreteObjectKeyFrame KeyTime="0:0:1">
-        			<DiscreteObjectKeyFrame.Value>
-        				<Visibility>Visible</Visibility>
-        			</DiscreteObjectKeyFrame.Value>
-        		</DiscreteObjectKeyFrame>
-        	</ObjectAnimationUsingKeyFrames>
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="QueryPanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)"
+                                           Storyboard.TargetName="QueryPanel">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="QueryPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Name="ResultsPanelFadeOut">
-        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ResultsPanel">
-        		<EasingDoubleKeyFrame KeyTime="0" Value="1"/>
-        		<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
-        	</DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)"
+                                           Storyboard.TargetName="ResultsPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="QueryPanel" >
-            <TextBlock Text="I am a" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,0,0,3"/>
-            <TextBox Text="" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Gray" Background="Transparent" BorderThickness="0" x:Name="ExpertIs" />
-            <TextBlock Text="looking for an expert in" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,0,0,3" />
-            <TextBox Text="" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Gray" Background="Transparent" BorderThickness="0" x:Name="ExpertFor" KeyDown="ExpertFor_KeyDown_1"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    x:Name="QueryPanel">
+            <TextBlock Text="I am a" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom" Foreground="White" Margin="0,0,0,3" />
+            <TextBox Text="" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom" Foreground="Gray" Background="Transparent" BorderThickness="0"
+                     x:Name="ExpertIs" />
+            <TextBlock Text="looking for an expert in" FontFamily="Segoe UI Light" FontSize="40"
+                       HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,0,0,3" />
+            <TextBox Text="" FontFamily="Segoe UI Light" FontSize="40" HorizontalAlignment="Center"
+                     VerticalAlignment="Bottom" Foreground="Gray" Background="Transparent" BorderThickness="0"
+                     x:Name="ExpertFor" KeyDown="ExpertFor_KeyDown_1" />
         </StackPanel>
         <Grid x:Name="ResultsPanel">
-            <TextBlock Width="1000" Height="600" x:Name="DumpBlock" TextWrapping="WrapWholeWords"  FontSize="20">
-
-            </TextBlock>
-            <ScrollViewer Height="600" Width="1000"
-                VerticalScrollMode="Enabled" 
-                VerticalScrollBarVisibility="Hidden" 
-                HorizontalScrollMode="Disabled">
-                <ItemsControl VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000" x:Name="PersonsItemsControl" 
-                      IsTapEnabled="False" 
-                      IsRightTapEnabled="False" 
-                      IsHitTestVisible="True" 
-                      IsHoldingEnabled="False" 
-                      IsDoubleTapEnabled="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" Grid.Row="1" x:Name="DumpBlock" TextWrapping="WrapWholeWords" FontSize="20" />
+            <ScrollViewer Grid.Column="1" Grid.Row="1"
+                          VerticalScrollMode="Enabled"
+                          VerticalScrollBarVisibility="Hidden"
+                          HorizontalScrollMode="Disabled">
+                <ItemsControl VerticalAlignment="Center" HorizontalAlignment="Center" Width="1000"
+                              x:Name="PersonsItemsControl"
+                              IsTapEnabled="False"
+                              IsRightTapEnabled="False"
+                              IsHitTestVisible="True"
+                              IsHoldingEnabled="False"
+                              IsDoubleTapEnabled="False">
 
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock Text="{Binding}" FontSize="20" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding}" FontSize="20" TextWrapping="Wrap" />
                                 <!--StackPanel Orientation="Horizontal">
                                 <TextBlock Text="{Binding firstname}" FontSize="20" FontFamily="Global User Interface" />
                                 <TextBlock Text="  " FontSize="20" />
@@ -111,10 +134,10 @@
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ItemsControl>
             </ScrollViewer>
         </Grid>
     </Grid>
 
-    
+
 </Page>

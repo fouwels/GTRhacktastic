@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock x:Name="StatusMessage" Text="Unset" Style="{StaticResource HeaderTextBlockStyle}" />
-            <ProgressRing x:Name="TheProgressRing" Margin="20"/>
+            <ProgressRing x:Name="TheProgressRing" Margin="20" />
         </StackPanel>
     </Grid>
 </Page>
