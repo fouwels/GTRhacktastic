@@ -3,15 +3,15 @@ GTRhacktastic
 RCUK hack
 
 
-#API
+#API - scrapped
 http://gtrtastic.eu01.aws.af.cm/
 
 / => http://gtrtastic.eu01.aws.af.cm/api.php
 /test/ => http://gtrtastic.eu01.aws.af.cm/api.php/test/
 
 #Findler - Windows RT App
-Imporsts Libs
-> Json.net
+Imports Libs
+-Json.net
 
 Sequence:
 GET /gtr/api/projects?q=turtles
@@ -19,7 +19,7 @@ For each project id
 GET /gtr/api/persons/:project-id
 Process ALL GETs -> ReportCard template for each user
 
->From Hack Page:
+###From Hack Page:
 >Provides a platform for a researcher to rapidly search for other researcher based on their field of interest.
 
 >Queries a couple of the endpoints of the GTR api to get projects relevant to the search, then iterated through, querying for the data of each contributor to said project, and finally collates the data together into a list of key-value pairs for each user, which can then be fed back to the user.
