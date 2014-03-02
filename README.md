@@ -1,17 +1,10 @@
 GTRhacktastic
 =============
-RCUK hack
-
-
-#API - scrapped
-http://gtrtastic.eu01.aws.af.cm/
-
-/ => http://gtrtastic.eu01.aws.af.cm/api.php
-/test/ => http://gtrtastic.eu01.aws.af.cm/api.php/test/
+RCUK hack http://hacks.rewiredstate.org/events/rcuk-gateway-to-research-sme-hack-day/findler
 
 #Findler - Windows RT App
-Imports Libs
--Json.net
+Imports
+* Json.net
 
 Sequence:
 GET /gtr/api/projects?q=turtles
